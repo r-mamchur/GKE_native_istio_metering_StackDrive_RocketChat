@@ -1,0 +1,44 @@
+# Configure a ingress gateway -- http and https (TLS) for test.
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: rocket
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      credentialName: rocket-credential  
+    hosts:
+    - "*"
+
+---
+# Define the corresponding virtual service.   
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: rocket
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - rocket
+  http:
+  - match:
+    - uri:
+        prefix: /
+    route:
+    - destination:
+        host: rocket-rocketchat
+
