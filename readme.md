@@ -16,7 +16,9 @@ Terraform deploy infrascrukture - GKE cluster and BigQuery Dataset for it.
 Copy it to `$HONE/.kube/config` or add `--kubeconfig="<Path>/kube-conf"` to command line.    
 
 Add a namespace label to instruct Istio to automatically inject Envoy sidecar proxies when you deploy your application later:
-```kubectl label namespace default istio-injection=enabled```
+```
+kubectl label namespace default istio-injection=enabled
+```
 
 ****Rocket Chat**** with Helm.    
 Details:    
@@ -48,7 +50,7 @@ kubectl apply -f GW_VS.yaml --kubeconfig=./kube-conf
 ```
 Verify external access at $INGRESS_HOST (http and https).
 
-####StackDrive
+#### StackDrive
 ![Monitoring](./monitoring.jpg)
 
 
