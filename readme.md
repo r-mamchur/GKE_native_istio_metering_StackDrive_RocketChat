@@ -58,7 +58,7 @@ Verify external access at $INGRESS_HOST (http and https).
 #### StackDrive
 ![Monitoring](./monitoring.jpg)
 
-####Issues:   
+#### Issues:   
 1. 
 ```sh
 $ istioctl analyze
