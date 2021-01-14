@@ -11,6 +11,7 @@ Install Terraform, kubectl, istionctl and Helm.
 But you can deploy https://github.com/r-mamchur/GCE_desktop_vm, there is everything.    
 
 Terraform deploy infrascrukture - GKE cluster and BigQuery Dataset for it.   
+(`Dataset` is need for `Metering Cluster` )
 
 ***kube-conf*** will be genereted by terraform from template. It allows access to the cluster (with kubectl, istioctl and helm).   
 Copy it to `$HONE/.kube/config` or add `--kubeconfig="<Path>/kube-conf"` to command line.    
@@ -57,7 +58,7 @@ Verify external access at $INGRESS_HOST (http and https).
 #### StackDrive
 ![Monitoring](./monitoring.jpg)
 
-####Issues:
+####Issues:   
 1. 
 ```sh
 $ istioctl analyze
@@ -69,5 +70,5 @@ Warning [IST0002] (CustomResourceDefinition serviceroles.rbac.istio.io) Deprecat
 2. [Google write:](https://cloud.google.com/istio/docs/istio-on-gke/overview#should_i_use)
 > " Anthos Service Mesh or open source Istio are better options for production workloads."
 
-3. Gateway didn't take up `server certificate`
+3. Gateway didn't take up `server certificate`.
 
