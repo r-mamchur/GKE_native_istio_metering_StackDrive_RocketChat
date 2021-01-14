@@ -21,6 +21,10 @@ kubectl label namespace default istio-injection=enabled
 ```
 
 ****Rocket Chat**** with Helm.    
+WARNING: This chart is deprecated   
+Chart Version	3.6.0   
+Current Version	3.10.3   
+
 Details:    
 [https://docs.rocket.chat/installation/automation-tools/helm-chart](https://docs.rocket.chat/installation/automation-tools/helm-chart)   
 [https://github.com/helm/charts/tree/master/stable/rocketchat](https://github.com/helm/charts/tree/master/stable/rocketchat)   
@@ -53,7 +57,8 @@ Verify external access at $INGRESS_HOST (http and https).
 #### StackDrive
 ![Monitoring](./monitoring.jpg)
 
-
+####Issues:
+1. 
 ```sh
 $ istioctl analyze
 Warning [IST0002] (CustomResourceDefinition clusterrbacconfigs.rbac.istio.io) Deprecated: Custom resource type rbac.istio.io ClusterRbacConfig is removed
@@ -61,4 +66,8 @@ Warning [IST0002] (CustomResourceDefinition rbacconfigs.rbac.istio.io) Deprecate
 Warning [IST0002] (CustomResourceDefinition servicerolebindings.rbac.istio.io) Deprecated: Custom resource type rbac.istio.io ServiceRoleBinding is removed
 Warning [IST0002] (CustomResourceDefinition serviceroles.rbac.istio.io) Deprecated: Custom resource type rbac.istio.io ServiceRole is removed
 ```
+2. [Google write:](https://cloud.google.com/istio/docs/istio-on-gke/overview#should_i_use)
+> " Anthos Service Mesh or open source Istio are better options for production workloads."
+
+3. Gateway didn't take up `server certificate`
 
